@@ -106,4 +106,26 @@ De esta manera, SCRUM permite que los equipos trabajen de manera eficiente y est
 \section{Desarrollo}
 \lhead{Desarrollo}
 Previo al desarrollo del proyecto que se referencia en este informe, el pasante ya llevaba alrededor de un mes trabajando para Vauxoo, por lo que ya tenía dominio básico de Python como lenguaje de programación, OpenObject como RAD Framework y OpenERP como herramienta, por ello, realizar una inducción durante el período de ocho semanas de pasantía resultó innecesario
+
+El desarrollo del proyecto se dividió en seis sprints de duración variable, tal como fue especificado en la Propuesta de Pasantía, con ``Scrum Meetings" al final de cada uno de los Sprints y una reunión inicial para explicar los requerimientos básicos del proyecto. A continuación se expone, nuevamente, el cronograma de trabajo presentado en el documento de propuesta de pasantía aprobado por la Escuela de Ingeniería Informática de la Universidad Católica Andrés Bello:
+
+\begin{center}
+    \begin{tabular}{ | p{5cm} | p{9cm} | }
+        \hline
+        \textbf{Período} & \textbf{Actividad} \\ \hline
+        18/04/2011 – 29/04/2011 & Análisis e implementación de los modelos de datos. \\ \hline
+        02/05/2011 – 06/05/2011 & Migración de los datos. \\ \hline
+        09/05/2011 – 13/05/2011 & Implementación de la Facturación Automática. \\ \hline
+        16/05/2011 – 20/05/2011 & Implementación del esquema de costos. \\ \hline
+        30/05/2011 – 10/06/2011 & Pruebas y reparación de bugs \\ \hline
+    \end{tabular}
+\end{center}
+
+Respecto a las pruebas y reparación de bugs, fue una actividad que debió realizarse a lo largo del desarrollo debido a que la metodología que se aplicó era Iterativa e Incremental, por lo que en cada iteración debía probarse el entregable y reparar los errores.
+
+\subsection{Primer Sprint: Análisis e implementación de los modelos de datos}
+Como se indicó al inicio, Cliper ya contaba con un sistema implementado por lo que resulta lógico pensar que ya existía un modelo de datos implantado para gestionar y persistir todos los objetos de negocio necesarios para el funcionamiento de la empresa. Este modelo de datos, estaba implementado sobre Microsoft SQL Server 2005 y en el Anexo 1 puede observarse el diagrama provisto por SQL Server para los objetos de negocio que se relacionan con los Contratos de Pólizas de Mantenimiento de Equipos.
+
+OpenObject provee unos modelos de datos por defecto que pueden ser extendidos para soportar las necesidades de información de un negocio particular en caso de que sea necesario, también permite la posibilidad de crear nuevos modelos de datos si alguno de los objetos de negocio no son compatibles o parecidos con los modelos por defecto de OpenObject. Además, siendo OpenObject un Stack Framework, provee Mapeo Objeto-Relacional (ORM) a través de OSV, que proporciona toda una plataforma para relacionar clases y objetos de dominio con estructuras a nivel de base de dato para hacerlas persistir. Durante este Sprint, todas las tablas implementadas en SQL Server 2005, fueron migrados a clases de dominio de OSV, analizando también el nivel de normalización del modelo de datos y realizando algunos ajustes para evitar duplicidad en la información y eliminar la existencia de atributos multivaluados
+
 \end{document}
