@@ -61,8 +61,17 @@ OpenERP es un sistema de gestión empresarial y contable de código abierto, dis
 
 \section{Descripción de la Empresa}
 \lhead{Descripción de la Empresa}
+En septiembre de 2009, Vauxoo se convirtió en el segundo partner oficial de OpenERP a través de una certificación Silver de todo el equipo de desarrollo de la herramienta.
 
-%TODO: Preguntarle a Nhomar o a humberto el fin de semana
+Desde Septiembre de 2010 el crecimiento exponencial que tuvimos nos ha permitido ser una empresa dedicada a soluciones ERP de código Abierto absolutamente con OpenERP como plataforma principal de trabajo, es por esto que nuestro equipo que antes era solo un departamento en una empresa con múltiples líneas de negocio (Netquatro), se ha independizado para ser solamente especialistas en OpenERP, y dedicar el 100\% de nuestra plataforma de servicios al soporte a ésta herramienta, continuamos manteniendo, mejorando y certificando las localizaciones Venezolana, Mexicana y Colombiana, y esperando seguir aportando a todas las localizaciones de Latinoamérica como Bolivia y Panamá donde esperamos nuestros aportes sigan siendo consistentes, y convertir a OpenERP en el ERP de referencia a nivel Latinoamericano y a Vauxoo como la empresa líder en servicios relacionados a Soporte, Coaching, Entrenamientos y desarrollos de módulos legales, operativos y funcionales para el mercado latinoamericano.
+
+Dentro de nuestra visión de mercado y negocios creemos que Latinoamérica está tendiendo a implementar cada vez de forma más común herramientas de Software Libre, por tal motivo creemos fielmente en el modelo de ayuda y colaboración a todos esos nuevos partners para que podamos compartir nuestra experiencia y de ésta manera, ayudarlos a crecer tal cual como crecimos nosotros en éste espacio geográfico, le ofrecemos servicios de Coaching, Guía de inicio de proyectos y estimación de propuestas, análisis de desarrollos para localizaciones, ajustes de las mismas, aprovechar eficiente de los servicios que presta OpenERP, S.A. comprender el modelo de negocios de la mano del editor, resolución de problemas legales, fiscales y operativos entre muchas otras áreas manejables o desarrollables por OpenERP.
+
+Desde Marzo de 2011 Vauxoo con su CEO Nhomar Hernández se han convertido en los primeros CTP (Certified Training partners) de Latinoamérica permitiendo de esta manera realizar entrenamientos de la mano de OpenERP asegurando la mayor calidad y la ya que el contenido de los mismos es desarrollado y constantemente actualizado por el Editor y tropicalizado y traducido por el equipo de desarrolladores del mayor número de módulos libres en OpenERP en y para Latinoamérica, Vauxoo.
+
+Permitenos ayudarte en tu implementación, soportarte en la planificación y procesos y de esta manera con nuestra filosofía abierta, de desarrollo transparente, ágil, libre, eficaz, eficiente y efectivo lograremos en conjunto construir el Mejor ERP del Mundo y asegurar el éxito.
+
+De esta manera nos definimos como una empresa especializada en soluciones libres y de código abierto que busca la excelencia en el servicio prestado a sus clientes.
 
 \newpage
 
@@ -124,8 +133,31 @@ El desarrollo del proyecto se dividió en seis sprints de duración variable, ta
 Respecto a las pruebas y reparación de bugs, fue una actividad que debió realizarse a lo largo del desarrollo debido a que la metodología que se aplicó era Iterativa e Incremental, por lo que en cada iteración debía probarse el entregable y reparar los errores.
 
 \subsection{Primer Sprint: Análisis e implementación de los modelos de datos}
-Como se indicó al inicio, Cliper ya contaba con un sistema implementado por lo que resulta lógico pensar que ya existía un modelo de datos implantado para gestionar y persistir todos los objetos de negocio necesarios para el funcionamiento de la empresa. Este modelo de datos, estaba implementado sobre Microsoft SQL Server 2005 y en el Anexo N° 1 puede observarse el diagrama provisto por SQL Server para los objetos de negocio que se relacionan con los Contratos de Pólizas de Mantenimiento de Equipos.
+Como se indicó al inicio, Cliper ya contaba con un sistema implementado por lo que resulta lógico pensar que ya existía un modelo de datos implantado para gestionar y persistir todos los objetos de negocio necesarios para el funcionamiento de la empresa. Este modelo de datos, estaba implementado sobre Microsoft SQL Server 2005 y en el Anexo 1 puede observarse el diagrama provisto por SQL Server para los objetos de negocio que se relacionan con los Contratos de Pólizas de Mantenimiento de Equipos.
 
-OpenObject provee unos modelos de datos por defecto que pueden ser extendidos para soportar las necesidades de información de un negocio particular en caso de que sea necesario, también permite la posibilidad de crear nuevos modelos de datos si alguno de los objetos de negocio no son compatibles o parecidos con los modelos por defecto de OpenObject. Además, siendo OpenObject un Stack Framework, provee Mapeo Objeto-Relacional (ORM) a través de OSV, que proporciona toda una plataforma para relacionar clases y objetos de dominio con estructuras a nivel de base de dato para hacerlas persistir. Durante este Sprint, todas las tablas implementadas en SQL Server 2005, fueron migrados a clases de dominio de OSV, analizando también el nivel de normalización del modelo de datos y realizando algunos ajustes para evitar duplicidad en la información y eliminar la existencia de atributos multivaluados. En el Anexo N° 2 puede observarse el nuevo modelo de datos basado en OpenObject. A continuación, se describe cuales de las tablas implementadas en SQL Server 2005 para el sistema anterior tienen correspondencia con alguno de los Modelos por defecto de OpenObject y además, cuales fueron implementados desde cero, ya que no existe modelo OpenObject por defecto.
+OpenObject provee unos modelos de datos por defecto que pueden ser extendidos para soportar las necesidades de información de un negocio particular en caso de que sea necesario, también permite la posibilidad de crear nuevos modelos de datos si alguno de los objetos de negocio no son compatibles o parecidos con los modelos por defecto de OpenObject. Además, siendo OpenObject un Stack Framework, provee Mapeo Objeto-Relacional (ORM) a través de OSV, que proporciona toda una plataforma para relacionar clases y objetos de dominio con estructuras a nivel de base de dato para hacerlas persistir. Durante este Sprint, todas las tablas implementadas en SQL Server 2005, fueron migrados a clases de dominio de OSV, analizando también el nivel de normalización del modelo de datos y realizando algunos ajustes para evitar duplicidad en la información y eliminar la existencia de atributos multivaluados. En el Anexo 2 puede observarse el nuevo modelo de datos basado en OpenObject. A continuación, se describe cuales de las tablas implementadas en SQL Server 2005 para el sistema anterior tienen correspondencia con alguno de los Modelos por defecto de OpenObject y además, cuales fueron implementados desde cero, ya que no existe modelo OpenObject por defecto.
 
+A continuación se presenta una tabla con los modelos extendidos y creados, según el esquema de datos anterior:
+\begin{center}
+    \begin{tabular}{ | p{5cm} | p{5cm} | p{5cm} | }
+        \hline
+        \textbf{Modelo Anterior} & \textbf{Modelo Nuevo} & \textbf{Extendido} \\ \hline
+        Viático & hr.expense & Si \\ \hline
+        Deptos & res.users & Si \\ \hline
+        Preventivo & project.project & Si \\ \hline
+        Equipo & policy.equipment & No \\ \hline
+        ContratoPoliza & policy.contract & No \\ \hline
+        Vehiculo & policy.vehicle & No \\ \hline
+    \end{tabular}
+\end{center}
+
+La tabla anterior presenta los modelos que extendidos, es decir, que fueron sustituidos por clases por defecto de OpenObject a las que se le agregaron atributos para hacer que se ajustaran al esquema de negocios de Cliper y los nuevos, es decir, los que fueron creados desde cero por no contar con una clase en OpenObject que permitiera gestionar conceptos similares.
+
+En el diagrama mostrado en el Anexo 1, que corresponde con el esquema de base de datos anterior, provisto por la herramienta de diagramas de SQL Server 2005, de observan varias tablas que no aparecen representadas entre los modelos citados anteriormente. Estas son:
+\begin{itemize}
+    \item \textbf{DetViatico:} esta tabla, corresponde líneas de detalle del viático que se asignó a algún empleado. Entre los modelos extendidos, se observa que la tabla Viatico, fue sustituida por el modelo hr.expense que, automáticamente, también gestiona estos detalles.
+    \item \textbf{CGasto, CG y ConceptoCG:} estas tres tablas del esquema de datos anterior, sirven para gestionar gastos realizados durante la reparación o mantenimiento de los equipos y que deben ser facturados al cliente o incluidos en una facturación de póliza. Para el registro en sistema de las facturas, se utilizaron los modelos account.invoice y account.invoice.line. Estos gastos que deben ser facturados al cliente, se manejan como líneas de factura.
+    \item \textbf{EquipoTecnico:} no aparece en el nuevo esquema de datos pues se trata de una tabla intersección para romper una relación de tipo muchos a muchos existente entre los técnicos de la empresa y los equipos que están asegurados bajo un contrato de póliza pues, un técnico puede tener muchos equipos a su cargo y, a su vez, un equipo puede ser atendido por varios técnicos. Esto se resolvió con un campo de tipo many2many (provisto por OpenObject a través del API de OSV) que relacione el modelo policy.equipment con el modelo por defecto de OpenObject para Gestión de Empleados hr.employee. Como a través de este modelo se gestionan todos los empleados de Cliper, es necesario definir un dominio a la hora de asignar un empleado a un equipo para, de esta manera, restringir que el empleado sea de tipo ``Técnico".
+    \item \textbf{ContratoTecnico:} no aparece en el nuevo esquema de datos pues se trata de una tabla intersección entre ContratoPoliza y los técnicos de la empresa, rompiendo, nuevamente, una relación muchos a muchos. Esto se resolvió igual que el ítem anterior, con un campo many2many para relacionar a los técnicos asignados para atender una póliza a través del modelo hr.employee, con los contratos de póliza, a través del modelo policy.contract. 
+\end{itemize}
 \end{document}
