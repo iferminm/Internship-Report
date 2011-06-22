@@ -126,6 +126,7 @@ El desarrollo del proyecto se dividió en seis sprints de duración variable, ta
         02/05/2011 – 06/05/2011 & Migración de los datos. \\ \hline
         09/05/2011 – 13/05/2011 & Implementación de la Facturación Automática. \\ \hline
         16/05/2011 – 20/05/2011 & Implementación del esquema de costos. \\ \hline
+        23/05/2011 – 27/05/2011 & Generación de los reportes y formatos necesarios \\ \hline
         30/05/2011 – 10/06/2011 & Pruebas y reparación de bugs \\ \hline
     \end{tabular}
 \end{center}
@@ -186,7 +187,12 @@ Debido a que el requerimiento que se atendió en este sprint fue la necesidad de
     \item Por cada modelo OpenERP, se construyó una consulta SQL para extraer los campos necesarios para completar la información requerida.
     \item Se recurrió a la opción "Exportar datos utilizando una consulta SQL" para obtener un archivo de Microsoft Excel con los registros resultantes.
     \item Utilizando OpenOffice.org, una suite ofimática libre incluida en la gran mayoría de las distribuciones de Linux, se convirtieron esos archivos xls a archivos separados por caracteres (csv), donde el caracter separador era una coma.
-    \item Utilizando los módulos de Python csv y ElementTree, diseñados para procesar, leer y escribir archivos csv y XML respectivamente, se procedió a escribir un script que leyera los archivos csv y los convirtiera a formato XML, siguiendo las especificaciones para archivos de carga de datos de OpenERP, también respetando el estándar ISO para las fechas (YYYY-MM-DD), convirtiendo las ocurrencias que estuvieran fuera de dicho estándar y, además, ajustando la codificación de caracteres a la implementada en la base de datos (UTF-8)
+    \item Utilizando los módulos de Python csv y ElementTree, diseñados para procesar, leer y escribir archivos csv y XML respectivamente, se procedió a escribir un script que leyera los archivos csv y los convirtiera a formato XML, siguiendo las especificaciones para archivos de carga de datos de OpenERP, también respetando el estándar ISO para las fechas (YYYY-MM-DD), convirtiendo las ocurrencias que estuvieran fuera de dicho estándar y, además, ajustando la codificación de caracteres a la implementada en la base de datos (UTF-8).
     \item Se produjo un archivo de inicialización de datos por cada modelo y se le hizo referencia en el \_\_terp\_\_.py para que fuera cargado por OpenERP al instalar el módulo.
 \end{enumerate}
+
+Durante este sprint, debido a la terminación temprana de las actividades, se empleó el tiempo también para atender algunas incidencias que debían ser solucionadas para poder implementar la facturación automática, estas incidencias no entaban dentro del alcance del proyecto de pasantía, por lo que no serán descritas en este informe.
+
+\section{Tercer Sprint: Implementación de la Facturación Automática}
+El requerimiento a ser atendido en este sprit fue la generación automática de facturas para los contratos de póliza de manera mensual y sin intervención humana en el proceso. Esto se logra mediante cambios de estado del documento, desde "Borrador" es decir, cuando es creado, hasta "Facturado", que es cuando efectivamente se emite la factura
 \end{document}
