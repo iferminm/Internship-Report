@@ -173,4 +173,20 @@ También, luego de analizar el esquema de datos anterior, algunos atributos de v
     \item El atributo Cobertura, presente en la tabla ContratoTecnico del esquema de datos anterior, utilizado para conocer el tipo de cobertura del contrato de Póliza de Mantenimiento, fue migrado al modelo policy.contracto.coverage, que cumple el mismo fin.
     \item El atributo TipoPago, presente en la tabla ContratoPoliza del esquema de datos anterior, utilizado para conocer la frecuencia de pago para un contrato dado, fue migrado al modelo policy.payment.type, utilizado para el mismo fin.
 \end{itemize}
+
+\subsection{Segundo Sprint: Migración de los Datos}
+
+Para cumplir con esta parte del proyecto, fue necesario hacer uso de diversas herramientas para exportar la información de la base de datos anterior e importarla al nuevo modelo de datos creado durante el primer sprint.
+
+OpenERP permite que los módulos, al ser instalados, carguen registros referentes a los modelos de datos creados por el mismo, estos modelos de datos son, al final, tablas a nivel de base de datos. Estos registros deben estar serializados en formato XML para que el módulo pueda cargarlos al ser instalado. Para que OpenERP sepa dónde buscar esos datos y cargarlos, esos archivos con datos iniciales deben estar referenciados en el descriptor OpenERP del módulo, el cual es el archivo \_\_terp\_\_.py.
+
+Debido a que el requerimiento que se atendió en este sprint fue la necesidad de que la información anterior estuviera presente en el nuevo sistema, debía importarse todos los datos vía XML como datos iniciales del módulo. Para ello, luego de explorar las opciones ofrecidas por Microsoft SQL Server, se siguió el siguiente procedimiento:
+
+\begin{enumerate}
+    \item Por cada modelo OpenERP, se construyó una consulta SQL para extraer los campos necesarios para completar la información requerida.
+    \item Se recurrió a la opción "Exportar datos utilizando una consulta SQL" para obtener un archivo de Microsoft Excel con los registros resultantes.
+    \item Utilizando OpenOffice.org, una suite ofimática libre incluida en la gran mayoría de las distribuciones de Linux, se convirtieron esos archivos xls a archivos separados por caracteres (csv), donde el caracter separador era una coma.
+    \item Utilizando los módulos de Python csv y ElementTree, diseñados para procesar, leer y escribir archivos csv y XML respectivamente, se procedió a escribir un script que leyera los archivos csv y los convirtiera a formato XML, siguiendo las especificaciones para archivos de carga de datos de OpenERP, también respetando el estándar ISO para las fechas (YYYY-MM-DD), convirtiendo las ocurrencias que estuvieran fuera de dicho estándar y, además, ajustando la codificación de caracteres a la implementada en la base de datos (UTF-8)
+    \item Se produjo un archivo de inicialización de datos por cada modelo y se le hizo referencia en el \_\_terp\_\_.py para que fuera cargado por OpenERP al instalar el módulo.
+\end{enumerate}
 \end{document}
