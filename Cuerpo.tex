@@ -28,7 +28,7 @@
 \lhead{Sinopsis}
 El presente informe, describe todos los detalles de la pasantía realizada por el Br. Israel Fermín Montilla en la empresa Vauxoo, desarrollando un Módulo para la herramienta de Planificación de Recursos Empresariales (ERP) llamada OpenERP, utilizando OpenObject como marco de trabajo y el lenguaje de programación Python, para la empresa mexicana Clima Perfecto (Cliper), la cual se dedica a proveer servicio de Mantenimiento e Instalación de equipos de Aire Acondicionado y Refrigeración, a través de contratos de póliza. El módulo desarrollado, debía soportar el proceso de facturación automática para dichos contratos.
 
-El desarrollo del módulo surge de la necesidad en Cliper de cambiar su actual sistema ERP, el cual es un desarrollo interno basado en SQL Server 2005. El modelo de datos usado por el sistema antiguo será mostrado en el desarrollo de este informe. Este sistema, sólo provee información acerca de las pólizas activas mas no automatiza los procesos como tal. Con la migración a OpenERP, de busca mejorar el estado actual en cuanto a Sistemas Administrativos en Cliper, mediante la automatización del sistema de contabilidad, administración de recursos humanos y gestión automática de pólizas de mantenimiento de aires acondicionados, si bien la situación no se puede considerar "mala" o "deficiente" en cuanto a tecnología, pues si existía un sistema para gestionar la información de clientes, proveedores, personal y contratos, esta se podía mejorar mediante la automatización de procesos (o subprocesos) críticos de la empresa y esto es exactamente lo que se desea lograr a través de OpenERP.
+El desarrollo del módulo surge de la necesidad en Cliper de cambiar su actual sistema ERP, el cual es un desarrollo interno basado en SQL Server 2005. El modelo de datos usado por el sistema antiguo será mostrado en el desarrollo de este informe. Este sistema, sólo provee información acerca de las pólizas activas mas no automatiza los procesos como tal. Con la migración a OpenERP, de busca mejorar el estado actual en cuanto a Sistemas Administrativos en Cliper, mediante la automatización del sistema de contabilidad, administración de recursos humanos y gestión automática de pólizas de mantenimiento de aires acondicionados, si bien la situación no se puede considerar ``mala" o ``deficiente" en cuanto a tecnología, pues si existía un sistema para gestionar la información de clientes, proveedores, personal y contratos, esta se podía mejorar mediante la automatización de procesos (o subprocesos) críticos de la empresa y esto es exactamente lo que se desea lograr a través de OpenERP.
 
 En este informe se describirá todo el desarrollo del módulo de gestión y facturación automática para pólizas de mantenimiento de aires acondicionados y equipos de refrigeración, desde el comienzo, hasta la entrega final del módulo. 
 
@@ -94,20 +94,20 @@ Existes varias metodologías enfocadas al esquema ágil, Vauxoo implementa Scrum
 
 \subsection{SCRUM}
 
-SCRUM es una metodología creada por Jeff Sutherland y su equipo de desarrollo a principios de la década de 1990 [14]. Los principios de SCRUM están enmarcados dentro del Manifiesto Ágil y es un proceso que lleva el Desarrollo de Software a través de las siguientes actividades: requerimientos, análisis, diseño, evolución y entrega. Cada una de esas actividades son realizadas dentro de un patrón de trabajo llamado Sprint, todo el trabajo realizado dentro de un Sprint es adaptado al problema y frecuentemente modificado por el equipo de desarrollo a medida que las condiciones van cambiando.
+SCRUM es una metodología creada por Jeff Sutherland y su equipo de desarrollo a principios de la década de 1990 (Pressman, 2010). Los principios de SCRUM están enmarcados dentro del Manifiesto Ágil y es un proceso que lleva el Desarrollo de Software a través de las siguientes actividades: requerimientos, análisis, diseño, evolución y entrega. Cada una de esas actividades son realizadas dentro de un patrón de trabajo llamado Sprint, todo el trabajo realizado dentro de un Sprint es adaptado al problema y frecuentemente modificado por el equipo de desarrollo a medida que las condiciones van cambiando.
 
 SCRUM hace énfasis en la utilización de procesos de software que son efectivos en proyectos con tiempos cortos de entrega y requerimientos cambiantes. Esos procesos, en general, definen dos grandes actividades de desarrollo:
 
 \begin{itemize}
-\item \textbf{Backlog:} el backlog, constituye una lista priorizada de requerimientos que agregan valor de negocio al producto, estos requerimientos pueden ser agregados en cualquier momento y, de esta manera, se introducen los cambios en el proyecto [14]. El backlog puede ser, además, modificado en cualquier momento para adaptar las prioridades a los cambios del negocio.
+\item \textbf{Backlog:} el backlog, constituye una lista priorizada de requerimientos que agregan valor de negocio al producto, estos requerimientos pueden ser agregados en cualquier momento y, de esta manera, se introducen los cambios en el proyecto (Pressman, 2010). El backlog puede ser, además, modificado en cualquier momento para adaptar las prioridades a los cambios del negocio.
 \item \textbf{Sprints:} los Sprints constituyen paquetes de trabajo que son necesarios para desarrollar un requerimiento o un conjunto de ellos [14]. Los cambios no pueden ser introducidos dentro de un Sprint, de esta manera se asegura que el trabajo que se realiza es estable, pues los requerimientos que se seleccionan para ser desarrollados en un Sprint ya deben estar definidos y se debe tener la certeza de que, en caso de cambiar, será manejable.
-\item \textbf{Scrum Meetings:} son reuniones cortas que, usualmente, se realizan todos los días durante un sprint [14]. Durante los Scrum Meetings se responden a tres preguntas básicas:
+\item \textbf{Scrum Meetings:} son reuniones cortas que, usualmente, se realizan todos los días durante un sprint (Pressman, 2010). Durante los Scrum Meetings se responden a tres preguntas básicas:
 \begin{itemize}
 \item ¿Qué has hecho desde la última reunión?.
 \item ¿Cuáles obstáculos has encontrado?.
 \item ¿Cuál es tu planificación hasta la próxima reunión?.
 \end{itemize}
-\item \textbf{Demos:} se van entregando los resultados de las funcionalidades desarrolladas al cliente para que puedan ser evaluados [14]. De esta manera, se va entregando Software Listo y Funcional que agrega valor al negocio del cliente en cada iteración.
+\item \textbf{Demos:} se van entregando los resultados de las funcionalidades desarrolladas al cliente para que puedan ser evaluados (Pressman, 2010). De esta manera, se va entregando Software Listo y Funcional que agrega valor al negocio del cliente en cada iteración.
 \end{itemize}
 
 De esta manera, SCRUM permite que los equipos trabajen de manera eficiente y estable en proyectos en los que la incertidumbre siempre está presente, además, resulta ideal para proyectos de pasantía ya que el desarrollador está en constante contacto con el cliente, además de que el tutor empresarial, lleva control de los tópicos que han detenido al pasante durante el desarrollo para darle soporte y guiarlo para resolver lo más pronto posible.
@@ -165,11 +165,10 @@ En el diagrama mostrado en el Anexo 1, que corresponde con el esquema de base de
 De la misma manera, el manejo de clientes y proveedores se realiza a través del modelo por defecto de OpenObject res.partner, que fue diseñado para este fin.
 
 También, luego de analizar el esquema de datos anterior, algunos atributos de varias entidades fueron migrados como tablas maestras de configuración pues pueden asumir diversos valores no predecibles, es decir, es un dominio acotado pero configurado por el cliente. De esta manera se busca evitar la repetición de un mismo valor escrito de manera diferente en varios registros. A continuación, se enumeran estos casos:
-
 \begin{itemize}
     \item El atributo TipodeEquipo de la tabla Equipo del esquema de datos anterior, utilizado para clasificar cada equipo de Aire Acondicionado según su tipo, fue migrado como el modelo policy.equipment.type, que cumple el mismo fin.
     \item El atributo ServicioA de la tabla Equipo del esquema de datos anterior, utilizado para conocer el tipo de servicio que presta cada equipo de Aire Acondicionado, fue migrado como el modelo policy.equipment.service.type, que cumple el mismo fin.
-    \item Los atributos ClaveArea, ClaveSubArea y ClaveDivision, presentes en varias tablas del esquema de datos anterior, fueron migrados a un modelo recursivo llamado policy.areas, que contiene un atributo "tipo" para poder conocer si se trata de un área, una sub-área o una división, al ser recursivo, este modelo permitirá también conocer la jerarquía de localizaciones.
+    \item Los atributos ClaveArea, ClaveSubArea y ClaveDivision, presentes en varias tablas del esquema de datos anterior, fueron migrados a un modelo recursivo llamado policy.areas, que contiene un atributo ``tipo" para poder conocer si se trata de un área, una sub-área o una división, al ser recursivo, este modelo permitirá también conocer la jerarquía de localizaciones.
     \item El atributo Tipo, presente en la tabla Preventivo del modelo de datos anterior, utilizado para conocer el tipo de mantenimiento que se realiza a un equipo de Aire Acondicionado, fue migrado como el modelo project.project.type, que cumple el mismo fin.
     \item El atributo Cobertura, presente en la tabla ContratoTecnico del esquema de datos anterior, utilizado para conocer el tipo de cobertura del contrato de Póliza de Mantenimiento, fue migrado al modelo policy.contracto.coverage, que cumple el mismo fin.
     \item El atributo TipoPago, presente en la tabla ContratoPoliza del esquema de datos anterior, utilizado para conocer la frecuencia de pago para un contrato dado, fue migrado al modelo policy.payment.type, utilizado para el mismo fin.
@@ -182,10 +181,9 @@ Para cumplir con esta parte del proyecto, fue necesario hacer uso de diversas he
 OpenERP permite que los módulos, al ser instalados, carguen registros referentes a los modelos de datos creados por el mismo, estos modelos de datos son, al final, tablas a nivel de base de datos. Estos registros deben estar serializados en formato XML para que el módulo pueda cargarlos al ser instalado. Para que OpenERP sepa dónde buscar esos datos y cargarlos, esos archivos con datos iniciales deben estar referenciados en el descriptor OpenERP del módulo, el cual es el archivo \_\_terp\_\_.py.
 
 Debido a que el requerimiento que se atendió en este sprint fue la necesidad de que la información anterior estuviera presente en el nuevo sistema, debía importarse todos los datos vía XML como datos iniciales del módulo. Para ello, luego de explorar las opciones ofrecidas por Microsoft SQL Server, se siguió el siguiente procedimiento:
-
 \begin{enumerate}
     \item Por cada modelo OpenERP, se construyó una consulta SQL para extraer los campos necesarios para completar la información requerida.
-    \item Se recurrió a la opción "Exportar datos utilizando una consulta SQL" para obtener un archivo de Microsoft Excel con los registros resultantes.
+    \item Se recurrió a la opción ``Exportar datos utilizando una consulta SQL" para obtener un archivo de Microsoft Excel con los registros resultantes.
     \item Utilizando OpenOffice.org, una suite ofimática libre incluida en la gran mayoría de las distribuciones de Linux, se convirtieron esos archivos xls a archivos separados por caracteres (csv), donde el caracter separador era una coma.
     \item Utilizando los módulos de Python csv y ElementTree, diseñados para procesar, leer y escribir archivos csv y XML respectivamente, se procedió a escribir un script que leyera los archivos csv y los convirtiera a formato XML, siguiendo las especificaciones para archivos de carga de datos de OpenERP, también respetando el estándar ISO para las fechas (YYYY-MM-DD), convirtiendo las ocurrencias que estuvieran fuera de dicho estándar y, además, ajustando la codificación de caracteres a la implementada en la base de datos (UTF-8).
     \item Se produjo un archivo de inicialización de datos por cada modelo y se le hizo referencia en el \_\_terp\_\_.py para que fuera cargado por OpenERP al instalar el módulo.
@@ -193,6 +191,85 @@ Debido a que el requerimiento que se atendió en este sprint fue la necesidad de
 
 Durante este sprint, debido a la terminación temprana de las actividades, se empleó el tiempo también para atender algunas incidencias que debían ser solucionadas para poder implementar la facturación automática, estas incidencias no entaban dentro del alcance del proyecto de pasantía, por lo que no serán descritas en este informe.
 
-\section{Tercer Sprint: Implementación de la Facturación Automática}
-El requerimiento a ser atendido en este sprit fue la generación automática de facturas para los contratos de póliza de manera mensual y sin intervención humana en el proceso. Esto se logra mediante cambios de estado del documento, desde "Borrador" es decir, cuando es creado, hasta "Facturado", que es cuando efectivamente se emite la factura
+\subsection{Tercer Sprint: Implementación de la Facturación Automática}
+El requerimiento a ser atendido en este sprit fue la generación automática de facturas para los contratos de póliza de manera mensual y sin intervención humana en el proceso. Esto se logra mediante cambios de estado del documento, desde ``Borrador" es decir, cuando es creado, hasta ``Facturado", que es cuando efectivamente se emite la factura. Usualmente el flujo seguirá un ritmo normal, cambiando de estado periódicamente y generando documentos nuevos a menos que ocurra una anomalía, en ese caso un humano debe detener el proceso y realizar las modificaciones o anotaciones según sea el caso.
+
+Desde el punto de vista administrativo, el documento factura tiene cinco estados descritos a continuación:
+\begin{enumerate}
+    \item \textbf{Borrador:} es el estado por defecto cuando el documento ha sido creado.
+    \item \textbf{En Ejecusión:} cuando el proceso que creó la factura está siendo realizado.
+    \item \textbf{Pendiente por Facturar:} cuando el proceso que creó la factura finalizó, pero aún no se emite el documento.
+    \item \textbf{Facturado:} cuando se emite el documento.
+    \item \textbf{Cancelado:} cuando por alguna anomalía en el proceso real, debe ser interrumpida la generación automática de facturas.
+\end{enumerate}
+Técnicamente, la implementación de esta característica del sistema se realizó en el modelo policy.contract, uno de los modelos desarrollados desde cero para este módulo, ya que es a partir de un contrato de póliza desde donde se generan las facturas automáticas cada período determinado. Esta característica fue entregada a manera de prototipo funcional pues, los cambios de estado, deben darse de manera automática dependiendo de ciertas condiciones dadas por el modelo de negocios de Cliper, estas condiciones no fueron especificadas por el cliente, por lo que, por los momentos, la facturación es de manera semiautomática, se acordó tratar la implementación de las condiciones como una incidencia posteriormente.
+
+Para desarrollar la Facturación Automática de contratos de póliza de mantenimiento, se realizaron las siguientes actividades:
+\begin{enumerate}
+    \item Se agregó un botón en la vista del modelo policy.contract para iniciar dar inicio al proceso de facturación.
+    \item Se agregaron botones para el cambio de estado de la factura. Estos botones son visibles dependiendo de en cuál estado de los especificados anteriormente se encuentra el docuento.
+    \item Se escribió en el modelo policy.contract el método que dispara cada uno de los botones, estos métodos se describen a continuación:
+    \begin{itemize}
+        \item \textbf{do\_invoice:} es el método que dispara la generación de la factura a partir del contrato de póliza, toma todos los datos del contrato y genera la factura usándolos como punto de partida, busca la información de los productos y/o servicios a ser facturados para armar las líneas de factura (account.invoice.line), los ratos referentes al cliente en el modelo res.partner y finalmente, genera un objeto factura (account.invoice) que corresponde al documento que se puede imprimir.
+        \item \textbf{to\_draft:} regresa una factura a estado borrador, puede hacerse sólo en estado ``Pendiente por Facturar" o ``En ejecusión", por lo que únicamente es visible en esos estados.
+        \item \textbf{to\_excecuting:} marca una factura como ``En Ejecución".
+        \item \textbf{to\_pending:} marca una factura como ``Pendiente por Facturar".
+        \item \textbf{to\_invoiced:} marca una factura como ``Facturado", una vez en este estado no puede modificarse.
+        \item \textbf{to\_calceled:} cancela el proceso de facturación automática.
+    \end{itemize}
+    \item Siguiendo el principio ``Open-Close" del desarrollo de software, que establece que una vez terminada la implementación de una clase, por ejemplo, ésta debe quedar ``Cerrada para la modificación", lo que quiere decir que ese código que se escribió no debería ser cambiado, y ``Abierta para la extensión", es decir, que puede heredarse y hacer sobreescritura o sobrecarga de métodos. Se escribió un par de métodos en blanco para ser extendidos posteriormente, el objetivo de estos métodos es que sean heredados y sobreescritos por otro módulo, estos métodos son para generar automáticamente la información que se colocará en los comentarios de las líneas de factura y de la factura como tal. 
+\end{enumerate}
+
+En un punto posterior del ciclo de vida de este proyecto, se utilizará el motor de flujos de OpenObject para implementar las condiciones bajo las cuales se dará el cambio de estado de una factura determinada.
+
+\subsection{Cuarto Sprint: Implementación del Esquema de Costos}
+ % TODO: Preguntarle a Nhomar o a Humberto
+
+\subsection{Quinto Sprint: Generación de Reportes y Formatos}
+Para la fecha de la visita del Tutor Académico, la Prof. Rosaura Paladino, no había surgido la necesidad de implementar un reporte impreso más allá de los que incluye OpenERP por defecto. Sin embargo, el tiempo destinado para esta actividad fue invertido en atender incidencias fuera del alcance de este proyecto de pasantía, pero que fueron solicitadas por Cliper. Estas incidencias atendían a optimización de procesos y atención a bugs fuera del módulo de gestión de pólizas de mantenimiento de equipos de aire acondicionado.
+
+\subsection{Sexto Sprint: Pruebas y Reparación de Bugs}
+Debido a la naturaleza de la metodología empleada, el contacto con el cliente es constante ya que el mismo es considerado parte del equipo de desarrollo, la cantidad de bugs durante la ejecusión del proyecto fue mínima y, la mayoría, no eran críticos y podían corregirse sobre la marcha. En esta iteración, sólo se corrigieron dos errores de programación de mayor índole:
+\begin{itemize}
+    \item Python, al igual que muchos lenguajes de programación, tiene ciertas limitaciones en cuanto al manejo de números de punto flotante (float) debido a la precición que debe manejar. OpenERP sólo necesita dos o tres decimales, por lo que los números decimales debían redondearse para evitar errores dentro del sistema.
+    \item Cuando se realizan operaciones en moneda extranjera, debe tomarse en cuenta un factor de paridad cambiaria. Cliper, factura en pesos mexicanos y en dólares americanos, por lo que esta característica debió ser incluída en esta etapa.
+\end{itemize}
+
+\newpage
+\section{Resultados}
+\lhead{Resultados}
+Al finalizar el período establecido para el desarrollo del Módulo de Gestión de Pólizas de Mantenimiento de Aires Acondicionados, se obtuvo un software totalmente funcional en algunos aspectos y prototípico/demostrativo en otros. Gracias a la naturaleza Iterativa e Incremental de la metodología aplicada, las secciones del proyecto que eran culminadas, podían pasarse a un entorno de producción para ser sometidas a condiciones reales, por lo que muchas secciones del módulo, se encuentran ya en el ambiente de producción de Cliper.
+
+Haciendo un recuento de los objetivos de la pasantía, se pueden resumir los resultados de la siguiente manera:
+\begin{itemize}
+    \item \textbf{Análisis e implementación de los modelos de datos:} Completado y funcionando en ambiente de Producción.
+    \item \textbf{Migración de los datos:} Completado e instalado junto con la instancia del módulo.
+    \item \textbf{Implementación de la facturación automática:} Completado a manera de prototipo debido a que las reglas de negocio no fueron especificadas a tiempo con claridad, se construyó esta característica pensando en la inclusión posterior de las reglas faltantes en otra iteración.
+    \item \textbf{Generación de reportes y formatos:} No fue necesario durante el tiempo de ejecusión de la parte del proyecto que se tomó como Proyecto de Pasantía.
+    \item \textbf{Pruebas y reparación de bugs:} Satisfactorio, no se registró ningún bug crítico que comprometiera el desarrollo del módulo o la seguridad del sistema. La cantidad de errores de programación fue mínima.
+\end{itemize}
+
+A manera informativa, ya que escapa al alcance de lo que se planteó en principio como Proyecto de Pasantía, la característica de Paridad Cambiaria fue agregada y desarrollada como un módulo aparte, por lo que otro entregable producto de este proyecto es un módulo que permite configurar cuentas de ingreso y egreso por paridad cambiaria en cualquier moneda.
+
+\newpage
+\section{Conclusiones y Recomendaciones}
+\lhead{Conclusiones y Recomendaciones}
+
+OpenERP y su plataforma de desarrollo, OpenObject, son herramientas sumamente potentes para gestión empresarial y programación respectivamente. Gracias a la estructura modular de OpenERP, a la facilidad de traducción que proporciona y a su esquema libre y de código abierto, es posible extenderlo y adaptarlo a cualquier negocio, en cualquier lugar y por cualquier persona con conocimientos ténicos de programación. Por otra parte, OpenObject como herramienta de programación es sumamente potente, ya que provee un API ``Todo en uno" para el desarrollo rápido de aplicaciones, desde un ORM hasta un motor de flujos de trabajo, pasando obviamente por un motor de generación de vistas, también, gracias a lo intuitivo Python como lenguaje de programación, es posible programar o configurar prototipos semifuncionales ``on the fly" para un cliente durante las entrevistas de análisis y levantamiento de requerimientos.
+
+Debido a que OpenObject está diseñado utilizando el patrón de diseño MVC, mientras se está desarrollando el modelo, el programador, puede abstraerse de que hay una vista en alguna capa superior, también, gracias OSV, la herramienta ORM de OpenObject, el desarrollador puede abstraerse del motor de base de datos subyacente y concentrarse en la estructura que tendrá el modelo de datos, más allá de la implementación posterior y la persistencia a nivel de base de datos ya que estos tópicos son competencia del ORM, también, gracias a que OpenObject provee un motor para la generación de vistas GTK y Web, el desarrollador puede olvidarse de la manera como se va a presentar la información y concentrarse en qué información va a ser mostrada, lo que permite ahorrar tiempo y horas de investigación, ensayo y error y frustración a desarrolladores con poca experiencia en cuanto al diseño de interfaces gráficas de usuario.
+
+Con todo lo expuesto anteriormente, puede observarse que la herramienta lleva a cabo prácticamente todo el trabajo, el desarrollador simplemente debe agregar la lógica y la ``inteligencia" de lo que va a hacer el módulo que está programando, sin embargo, para poder utilizar una herramienta de este tipo, es necesario tener muy claros y dominar los conceptos que está implementando para poder saber por qué la herramienta toma una decición en un momento determinado o por qué implementa algún factor de una forma dada pues, muchas veces, una herramienta no es capaz de tomar la mejor decición o de generar el código más optimizado para un caso determinado y corresponde al desarrollador (Ingeniero en Informática) llevar a cabo las correcciones pertinentes para mejorar el funcionamiento y el comportamiento del sistema que está desarrollando.
+
+Una metodología iterativa e incremental como Scrum, la metodología implementada para el desarrollo del sistema, permite que el cliente pueda ver el avance del proyecto de primera mano, también, permite al equipo de desarrollo y al consultor a cargo tener más claras las reglas de negocio ya que el cliente forma parte del equipo y está disponible para cualquier consulta en cualquier momento. Sin embargo, es recomendable invertir algo más de tiempo en una etapa de análisis del negocio antes de pasar a la implementación, de manera que tanto el cliente como el equipo de desarrollo puedan tener bien claras las reglas de negocio, todo esto para evitar inconvenientes y retrazos como el de la característica de facturación automática de este proyecto que no pudo ser completada por falta de definición del requerimiento.
+
+\newpage
+\section{Bibliografía}
+\lhead{Bibliografía}
+\begin{itemize}
+    \item Pressman, Roger. (2010). Software Engineering: a Practitioner's Approach. New York: McGraw Hill.
+    \item Beck, Kent et al. Manifesto for Agile Software Development [Documento en línea]. Disponible: http://agilemanifesto.org/ [Consulta: 2011, Junio 22].
+    \item OpenERP Comunity. 
+\end{itemize}
+
 \end{document}
